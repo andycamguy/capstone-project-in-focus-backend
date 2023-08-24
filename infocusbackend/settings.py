@@ -88,6 +88,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'flcalc',
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
@@ -197,3 +198,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = "static"
 STATIC_URL = "/static/"
 STATICFILES_DIRS = []
+CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.gitpod\.io$",
+]
