@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'flcalc',
+    'environ',
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
@@ -202,3 +203,7 @@ CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://.*\.gitpod\.io$",
 ]
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+)
