@@ -39,3 +39,7 @@ class User(models.Model):
 class UserCameraSettings(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     camera_model = models.ForeignKey(CameraModel, on_delete=models.CASCADE)
+
+class UserCameraObjectDistance(models.Model):
+    user_settings = models.ForeignKey(UserCameraSettings, on_delete=models.CASCADE)
+    object_distance = models.ForeignKey(ObjectDistance, on_delete=models.CASCADE)
