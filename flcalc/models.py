@@ -1,5 +1,4 @@
 from django.db import models
-from django.db import models
 
 class FStop(models.Model):
     value = models.FloatField()
@@ -14,6 +13,8 @@ class CameraModel(models.Model):
     f_stop_num = models.FloatField()
     f_stops = models.ManyToManyField(FStop, through='ModelFStop')
     lenses = models.ManyToManyField(Lens, through='ModelLens')
+    object_distance = models.FloatField()  # New field for object distance
+
 
 class ModelFStop(models.Model):
     fstop_id = models.ForeignKey(FStop, on_delete=models.CASCADE)
@@ -40,6 +41,3 @@ class UserCameraSettings(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     camera_model = models.ForeignKey(CameraModel, on_delete=models.CASCADE)
 
-class UserCameraObjectDistance(models.Model):
-    user_settings = models.ForeignKey(UserCameraSettings, on_delete=models.CASCADE)
-    object_distance = models.ForeignKey(ObjectDistance, on_delete=models.CASCADE)
